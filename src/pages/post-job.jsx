@@ -1,9 +1,9 @@
-import { getCompanies } from "@/api/apiCompanies";
-import { addNewJob } from "@/api/apiJobs";
-import AddCompanyDrawer from "@/components/add-company-drawer";
-import { Button } from "@/components/ui/button";
+import { getCompanies } from "@/api/apiCompanies"
+import { addNewJob } from "@/api/apiJobs"
+import AddCompanyDrawer from "@/components/add-company-drawer"
+import { Button } from "@/components/ui/button"
 
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/input"
 import {
   Select,
   SelectContent,
@@ -11,18 +11,18 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import useFetch from "@/hooks/use-fetch";
-import { useUser } from "@clerk/clerk-react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import MDEditor from "@uiw/react-md-editor";
-import { State } from "country-state-city";
-import { useEffect } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { Navigate, useNavigate } from "react-router-dom";
-import { BarLoader } from "react-spinners";
-import { z } from "zod";
+} from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+import useFetch from "@/hooks/use-fetch"
+import { useUser } from "@clerk/clerk-react"
+import { zodResolver } from "@hookform/resolvers/zod"
+import MDEditor from "@uiw/react-md-editor"
+import { State } from "country-state-city"
+import { useEffect } from "react"
+import { Controller, useForm } from "react-hook-form"
+import { Navigate, useNavigate } from "react-router-dom"
+import { BarLoader } from "react-spinners"
+import { z } from "zod"
 
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required" }),
@@ -30,11 +30,11 @@ const schema = z.object({
   location: z.string().min(1, { message: "Select a location" }),
   company_id: z.string().min(1, { message: "Select or Add a new Company" }),
   requirements: z.string().min(1, { message: "Requirements are required" }),
-});
+})
 
 const PostJob = () => {
-  const { user, isLoaded } = useUser();
-  const navigate = useNavigate();
+  const { user, isLoaded } = useUser()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -44,46 +44,46 @@ const PostJob = () => {
   } = useForm({
     defaultValues: { location: "", company_id: "", requirements: "" },
     resolver: zodResolver(schema),
-  });
+  })
 
   const {
     loading: loadingCreateJob,
     error: errorCreateJob,
     data: dataCreateJob,
     fn: fnCreateJob,
-  } = useFetch(addNewJob);
+  } = useFetch(addNewJob)
 
   const onSubmit = (data) => {
     fnCreateJob({
       ...data,
       recruiter_id: user.id,
       isOpen: true,
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    if (dataCreateJob?.length > 0) navigate("/jobs");
-  }, [loadingCreateJob]);
+    if (dataCreateJob?.length > 0) navigate("/jobs")
+  }, [loadingCreateJob])
 
   const {
     loading: loadingCompanies,
     data: companies,
     fn: fnCompanies,
-  } = useFetch(getCompanies);
+  } = useFetch(getCompanies)
 
   useEffect(() => {
     if (isLoaded) {
-      fnCompanies();
+      fnCompanies()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoaded]);
+  }, [isLoaded])
 
   if (!isLoaded || loadingCompanies) {
-    return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
+    return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />
   }
 
   if (user?.unsafeMetadata?.role !== "recruiter") {
-    return <Navigate to="/jobs" />;
+    return <Navigate to="/jobs" />
   }
 
   return (
@@ -103,7 +103,7 @@ const PostJob = () => {
           <p className="text-red-500">{errors.description.message}</p>
         )}
 
-        <div className="flex gap-4 items-center">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Controller
             name="location"
             control={control}
@@ -180,7 +180,7 @@ const PostJob = () => {
         </Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default PostJob;
+export default PostJob

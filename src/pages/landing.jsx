@@ -35,18 +35,25 @@ const LandingPage = () => {
           Explore thousands of job listings or find the perfect candidate
         </p>
       </section>
-      <div className="flex gap-6 justify-center">
-        <Link to={"/jobs"}>
-          <Button variant="blue" size="xl">
+      <div className="flex gap-4 sm:gap-6 justify-center items-center">
+        <Link to="/jobs">
+          <Button
+            variant="blue"
+            className="cursor-pointer w-full sm:w-auto text-base sm:text-2xl py-5 sm:py-8 px-9 sm:px-14"
+          >
             Find Jobs
           </Button>
         </Link>
-        <Link to={"/post-job"}>
-          <Button variant="destructive" size="xl">
-            Post a Job
+        <Link to="/post-job">
+          <Button
+            variant="destructive"
+            className="cursor-pointer w-full sm:w-auto text-base sm:text-2xl py-5 sm:py-8 px-9 sm:px-14"
+          >
+            Post Jobs
           </Button>
         </Link>
       </div>
+
       <Carousel
         plugins={[
           Autoplay({
@@ -55,9 +62,9 @@ const LandingPage = () => {
         ]}
         className="w-full py-10"
       >
-        <CarouselContent className="flex gap-5 sm:gap-20 items-center">
+        <CarouselContent className="flex gap-5 sm:gap-20 items-center z-0">
           {companies.map(({ name, id, path }) => (
-            <CarouselItem key={id} className="basis-1/3 lg:basis-1/6 ">
+            <CarouselItem key={id} className="basis-1/3 lg:basis-1/6  ">
               <img
                 src={path}
                 alt={name}
