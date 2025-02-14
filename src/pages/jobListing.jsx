@@ -85,9 +85,9 @@ const JobListing = () => {
           type="text"
           placeholder="Search Jobs by Title.."
           name="search-query"
-          className="h-full flex-1  px-4 text-md"
+          className="h-10 flex-1  px-4 text-md"
         />
-        <Button type="submit" className="h-full sm:w-28" variant="blue">
+        <Button type="submit" className="h-10 sm:w-28" variant="blue">
           Search
         </Button>
       </form>
