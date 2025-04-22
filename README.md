@@ -1,11 +1,40 @@
-# Full Stack Job Portal with React JS, Tailwind CSS, Supabase, Clerk, Shadcn UI Tutorial 🔥🔥
-## https://www.youtube.com/watch?v=2XF-HgauItk
-![hirrd 1](https://github.com/user-attachments/assets/1da23b25-1f29-4402-be74-03685d9b732d)
+# 💼 Hirrd - Job Finder Platform
 
-### Make sure to create a `.env` file with following variables -
+Hirrd is a modern job portal built with React.js, allowing job seekers to discover opportunities and apply directly, while empowering employers to post jobs and connect with potential candidates.
 
-```
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
-VITE_CLERK_PUBLISHABLE_KEY=
-```
+---
+
+## 🌐 Live Demo
+
+👉 [View Live on Vercel](https://hirrd-boards.netlify.app/)
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend:** React.js (Vite)
+- **Styling:** Tailwind CSS
+- **Authentication:** Clerk.dev
+- **UI Components:** ShadCN UI (Radix + Tailwind + Lucide)
+- **State Management:** React Hooks
+- **Deployment:** Vercel
+
+---
+
+## ✨ Features
+
+### 👨‍💼 Job Seekers:
+- 🔍 Search & filter job listings
+- 📝 View job details
+- 📤 Submit resume (Apply)
+- 🔐 Authentication with Clerk
+
+### 🏢 Employers:
+- 📝 Post new job ads
+- 📬 View candidate applications
+- 📄 Manage job listings
+
+---
+
+## 📁 Project Structure
+

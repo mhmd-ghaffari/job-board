@@ -1,5 +1,5 @@
-import Header from "@/components/header";
-import { Outlet } from "react-router-dom";
+import Header from "@/components/header"
+import { Outlet } from "react-router-dom"
 
 const AppLayout = () => {
   return (
@@ -13,7 +13,7 @@ const AppLayout = () => {
         Made with 💗 by Mohammad
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AppLayout;
+export default AppLayout

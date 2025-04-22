@@ -42,14 +42,14 @@ const Onboarding = () => {
       <div className="mt-16 grid grid-cols-2 gap-4 w-full md:px-40">
         <Button
           variant="blue"
-          className="h-36 text-2xl"
+          className="h-20 text-xl sm:h-36 sm:text-2xl"
           onClick={() => handleRoleSelection("candidate")}
         >
           Candidate
         </Button>
         <Button
           variant="destructive"
-          className="h-36 text-2xl"
+          className="h-20 text-xl sm:h-36 sm:text-2xl"
           onClick={() => handleRoleSelection("recruiter")}
         >
           Recruiter
